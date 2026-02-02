@@ -1,9 +1,6 @@
-# {{ ansible_managed }}
-version: '3.4'
-
 services:
   haproxy:
-    image: haproxy:2.6.12
+    image: haproxy:3.3.2
     container_name: maintenance
     # Because we are using the network_mode has host to has an increased performance and also to has
     # correct IPv6 client address, then we need to run the container using 'root' with a lower
@@ -13,6 +10,7 @@ services:
     restart: always
     volumes:
       - "./haproxy:/usr/local/etc/haproxy/:ro"
+      - "./pages:/pages/:ro"
       - "/var/run/haproxy/:/var/run/haproxy/:rw"
       - "./certs:/certs/:ro"
     healthcheck:
