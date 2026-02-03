@@ -129,6 +129,12 @@ certs/
 
 ### Issuing Certificates
 
+Next there are a couple of examples on how to issue certificates using certbot on a docker container.
+
+Note: The HAProxy won't reload automatically the new certificates on the `certs` folder.
+It is possible, but it is too complicated for this kind of service.
+So a "normal" stop start would do the trick.
+
 #### Option 1: Single Domain Certificate (HARICA ACME)
 
 Use this method for specific domains with HARICA or other ACME providers.
