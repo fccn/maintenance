@@ -2,6 +2,32 @@
 
 A flexible HAProxy-based maintenance page server that serves custom maintenance pages for multiple domains. This solution uses Docker Compose for easy deployment and supports SSL/TLS certificates.
 
+## Table of contents
+
+- [Maintenance Page Server](#maintenance-page-server)
+  - [Table of contents](#table-of-contents)
+  - [Overview](#overview)
+  - [Quick Start](#quick-start)
+    - [1. Start the Server](#1-start-the-server)
+    - [2. Check Status](#2-check-status)
+    - [3. View Logs](#3-view-logs)
+    - [4. Stop the Server](#4-stop-the-server)
+  - [Adding Custom Maintenance Pages](#adding-custom-maintenance-pages)
+    - [Step 1: Create the HTML Page](#step-1-create-the-html-page)
+    - [Step 2: Configure HAProxy](#step-2-configure-haproxy)
+    - [Step 3: Restart HAProxy](#step-3-restart-haproxy)
+  - [Testing](#testing)
+    - [Test HTTP](#test-http)
+    - [Test HTTPS](#test-https)
+  - [Directory Structure](#directory-structure)
+  - [SSL/TLS Certificates](#ssltls-certificates)
+    - [Certificate File Format](#certificate-file-format)
+    - [Issuing Certificates](#issuing-certificates)
+      - [Option 1: Single Domain Certificate (HARICA ACME)](#option-1-single-domain-certificate-harica-acme)
+      - [Option 2: Wildcard Domain Certificate (HARICA ACME)](#option-2-wildcard-domain-certificate-harica-acme)
+      - [Option 3: Let's Encrypt (HTTP-01 Challenge)](#option-3-lets-encrypt-http-01-challenge)
+
+
 ## Overview
 
 This project provides a lightweight, configurable maintenance page server with:
